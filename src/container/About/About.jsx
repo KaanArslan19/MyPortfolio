@@ -21,9 +21,7 @@ const About = () => {
   SwiperCore.use([Autoplay, Navigation, Pagination]);
   const [swiper, setSwiper] = useState(null);
   const [swiperMobile, setSwiperMobile] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(false);
 
-  const [width, setWidth] = useState(window.innerWidth);
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
@@ -46,15 +44,15 @@ const About = () => {
   ];
 
   const activeButton = () => {
-    const buttonElement = document.getElementById(`${swiper.activeIndex}`);
+    const buttonElement = document.getElementById(`${swiper?.activeIndex}`);
     const btnElList = document.querySelectorAll(".button-projects");
-    btnElList.forEach((element) => {
+    btnElList.forEach(() => {
       document
         .querySelector(".active-button")
         ?.classList.remove("active-button");
     });
 
-    buttonElement.classList.add("active-button");
+    buttonElement?.classList.add("active-button");
   };
 
   return (
@@ -75,13 +73,16 @@ const About = () => {
                 slidesPerView={1}
                 effect="fade"
                 modules={[EffectFade, Pagination]}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                  waitForTransition: true,
+                }}
                 className="swiper d-flex"
-                /* pagination={{ clickable: true }} */
                 onSwiper={(swiper) => {
                   setSwiper(swiper);
                 }}
-                onActiveIndexChange={() => activeButton()}
+                onActiveIndexChange={() => activeButton(setSwiperMobile)}
               >
                 {projectImagesWeb.map((item, index) => (
                   <SwiperSlide key={index}>
@@ -107,9 +108,11 @@ const About = () => {
               slidesPerView={1}
               effect="fade"
               modules={[EffectFade, Pagination]}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               className="swiper d-flex"
-              pagination={{ clickable: true }}
               onSwiper={(swiper) => {
                 setSwiperMobile(swiper);
               }}
