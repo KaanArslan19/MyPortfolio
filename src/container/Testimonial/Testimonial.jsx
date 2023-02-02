@@ -19,30 +19,7 @@ const Testimonial = () => {
 
   return (
     <>
-   
-
-
-   
-      <Swiper
-        slidesPerView={1}
-        navigation
-        effect="fade"
-        modules={[EffectFade]}
-        autoplay={{ delay: 300 }}
-        className="swiper"
-      >
-         <div className="">
-
-        {projectImagesWeb.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="">
-              <img className="test_image" src={item} alt="image-slider" />
-            </div>
-          </SwiperSlide>
-        ))}
-        </div>
-      </Swiper>
-    
+      <div className="d-flex flex-row justify-content-center"></div>
     </>
   );
 };

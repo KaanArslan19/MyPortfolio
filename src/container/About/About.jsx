@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./About.scss";
-import { urlFor, client } from "../../client";
+
 import { images } from "../../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -12,74 +12,92 @@ import SwiperCore, {
   Navigation,
   Pagination,
 } from "swiper";
-import "swiper/css/bundle";
-import SimpleImageSlider from "react-simple-image-slider";
+import "swiper/css";
+import "swiper/css/pagination";
 
-let isMobile = true;
+import { useMediaQuery } from "react-responsive";
 
 const About = () => {
-  const [abouts, setAbouts] = useState([]);
   SwiperCore.use([Autoplay, Navigation, Pagination]);
+  const [swiper, setSwiper] = useState(null);
+  const [swiperMobile, setSwiperMobile] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(false);
 
   const [width, setWidth] = useState(window.innerWidth);
-  const projectImagesMobile = [images.realtormobile, images.twittermobile];
-  const projectImagesWeb = [images.realtorweb, images.twitterweb];
-  const handleWindowSizeChange = () => {
-    setWidth(window.innerWidth);
-    isMobile = window.innerWidth < 1400 ? true : false;
-  };
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
+  const isMidDevice = useMediaQuery({
+    query: "(max-width: 1200px)",
+  });
+  const projectImagesMobile = [
+    images.realtormobile,
+    images.twittermobile,
+    images.ecommercemobile,
+    images.ytmobile,
+    images.mediamobile,
+  ];
+  const projectImagesWeb = [
+    images.realtorweb,
+    images.twitterweb,
+    images.ecommerceweb,
+    images.ytweb,
+    images.mediaweb,
+  ];
 
-  useEffect(() => {
-    const query = '*[_type == "abouts"]';
-
-    client.fetch(query).then((data) => {
-      setAbouts(data);
+  const activeButton = () => {
+    const buttonElement = document.getElementById(`${swiper.activeIndex}`);
+    const btnElList = document.querySelectorAll(".button-projects");
+    btnElList.forEach((element) => {
+      document
+        .querySelector(".active-button")
+        ?.classList.remove("active-button");
     });
-  }, []);
+
+    buttonElement.classList.add("active-button");
+  };
 
   return (
     <>
-      {console.log(width)}
-      <div className="app__portfolio">
-        <h2 className="head-text">
-          I Know that <span>Good Design</span> <br />
-          means <span>Good Business</span>
-        </h2>
+      <div className="app__portfolio d-flex flex-column flex ">
+        <div className="d-flex flex-column flex align-items-center">
+          <h2 className="head-text ">
+            I Know that <span className="design-text">Good Design</span> <br />
+            means <span className="business-text">Good Business</span>
+          </h2>
+        </div>
 
-        {/*       {abouts.map((about, index) => (
-          <motion.div
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: 'tween' }}
-            className="app__profile-item"
-            key={about.title + index}
-          >
-           
-          </motion.div>
-        ))} */}
-
-        <div className="app_responsive_projects ">
+        <div className="app_responsive_projects row justify-content-center">
           {!isMobile && (
-            <div className="app_responsive_design_mac app__flex ">
+            <div className="app_responsive_design_mac d-flex col-10 justify-content-center p-0">
               <img className="frame" src={images.macframe} alt="mac-frame" />
-
-              <div className="project_image app__flex">
-                <img
-                  className="web_image"
-                  src={images.realtorweb}
-                  alt="Mobile-images"
-                />
-              </div>
+              <Swiper
+                slidesPerView={1}
+                effect="fade"
+                modules={[EffectFade, Pagination]}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                className="swiper d-flex"
+                /* pagination={{ clickable: true }} */
+                onSwiper={(swiper) => {
+                  setSwiper(swiper);
+                }}
+                onActiveIndexChange={() => activeButton()}
+              >
+                {projectImagesWeb.map((item, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="project_image d-flex justify-content-center align-items-end">
+                      <img className="" src={item} alt="Mobile-images" />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           )}
-
-          <div className="app_responsive_design_phone app__flex">
+          <div
+            className={`app_responsive_design_phone d-flex align-items-end p-0 ${
+              isMobile ? "col-10 " : "col-2"
+            }`}
+          >
             <img
               className="phone_frame"
               src={images.phoneframe}
@@ -88,24 +106,95 @@ const About = () => {
             <Swiper
               slidesPerView={1}
               effect="fade"
-              modules={[EffectFade]}
-              autoplay={{ delay: 3000 }}
-              className="swiper"
+              modules={[EffectFade, Pagination]}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              className="swiper d-flex"
+              pagination={{ clickable: true }}
+              onSwiper={(swiper) => {
+                setSwiperMobile(swiper);
+              }}
+              onActiveIndexChange={() => activeButton()}
             >
               {projectImagesMobile.map((item, index) => (
                 <SwiperSlide key={index}>
-                  <div className="project_image app__flex">
-                    <img
-                      className="phone_image"
-                      src={item}
-                      alt="Mobile-images"
-                    />
+                  <div className="project_image d-flex justify-content-center align-items-end">
+                    <img className="" src={item} alt="Mobile-images" />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
+        {!isMidDevice ? (
+          <div className="button-wrapper ">
+            <button
+              id="0"
+              className="button-projects"
+              onClick={() => {
+                swiper.slideTo(0);
+                swiperMobile.slideTo(0);
+                activeButton();
+              }}
+            >
+              Realtor Clone
+            </button>
+
+            <button
+              id="1"
+              className={`button-projects`}
+              onClick={() => {
+                swiper.slideTo(1);
+                swiperMobile.slideTo(1);
+                activeButton();
+              }}
+            >
+              Twitter Clone
+            </button>
+            <button
+              id="2"
+              className="button-projects"
+              onClick={() => {
+                swiper.slideTo(2);
+                swiperMobile.slideTo(2);
+                activeButton();
+              }}
+            >
+              E-Commerce Site
+            </button>
+            <button
+              id="3"
+              className="button-projects"
+              onClick={() => {
+                swiper.slideTo(3);
+                swiperMobile.slideTo(3);
+                activeButton();
+              }}
+            >
+              Youtube Clone
+            </button>
+            <button
+              id="4"
+              className="button-projects"
+              onClick={() => {
+                swiper.slideTo(4);
+                swiperMobile.slideTo(4);
+                activeButton();
+              }}
+            >
+              Movie Site
+            </button>
+          </div>
+        ) : (
+          <a
+            href="https://github.com/KaanArslan19"
+            className="all-projects-wrap"
+            target="_blank"
+          >
+            <button className="button-projects all-projects ">
+              See all of my projects
+            </button>
+          </a>
+        )}
       </div>
     </>
   );
