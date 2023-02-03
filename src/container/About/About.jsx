@@ -82,7 +82,7 @@ const About = () => {
                 onSwiper={(swiper) => {
                   setSwiper(swiper);
                 }}
-                onActiveIndexChange={() => activeButton(setSwiperMobile)}
+                onActiveIndexChange={() => activeButton()}
               >
                 {projectImagesWeb.map((item, index) => (
                   <SwiperSlide key={index}>
@@ -193,7 +193,10 @@ const About = () => {
             className="all-projects-wrap"
             target="_blank"
           >
-            <button className="button-projects all-projects ">
+            <button
+              id="allprojects-button"
+              className="button-projects all-projects "
+            >
               See all of my projects
             </button>
           </a>

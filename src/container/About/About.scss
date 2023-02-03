@@ -129,6 +129,9 @@
 }
 
 .all-projects-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   :hover {
     color: var(--secondary-color);
     background-color: var(--primary-color);
@@ -139,4 +142,8 @@
   background-color: #fff;
   color: var(--secondary-color);
   transform: scale(1.05) rotate(-1deg);
+}
+
+#allprojects-button {
+  margin: 2rem 0 0 0;
 }
