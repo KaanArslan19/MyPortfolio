@@ -12,10 +12,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <a href={images.cv} download>
-        <div className="app__navbar-logo">
-          <p className="app__navbar_CV">Download CV</p>
-          <img src={images.logo} alt="logo" />
-        </div>
+        <span className="app__navbar_CV">Download Resume</span>
       </a>
 
       <ul className="app__navbar-links">

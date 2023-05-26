@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./About.scss";
@@ -59,9 +58,9 @@ const About = () => {
     <>
       <div className="app__portfolio d-flex flex-column flex ">
         <div className="d-flex flex-column flex align-items-center">
-          <h2 className="head-text ">
-            I Know that <span className="design-text">Good Design</span> <br />
-            means <span className="business-text">Good Business</span>
+          <h2 className="about-head ">
+            User Experience is <span className="design-text">the Key</span>{" "}
+            <br /> to have good Business
           </h2>
         </div>
 

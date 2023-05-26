@@ -36,42 +36,22 @@ const Header = () => {
               <h2 className="head-text-desc">
                 I build projects using the latest web technologies.
               </h2>
-              <p className="p-text-head-desc">
-                I'm an electric and electronic engineer specialized in interface
-                design. I like to craft solid and scalable frontend projects
-                with great user experiences.
-              </p>
+              <div className="head-text-content">
+                <p>
+                  An electric and electronic engineer specialized in interface
+                  design and communication between various hardware and motion
+                  control software to make the machines work.
+                </p>
+                <p>
+                  Decided to switch career to build web and mobile applications
+                  for clients which is similar to the area that I had proven
+                  experience.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </motion.div>
-
-      <motion.div
-        whileInView={{ opacity: [0, 1] }}
-        transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__header-img"
-      ></motion.div>
-      {!isMobile && (
-        <motion.div
-          variants={scaleVariants}
-          whileInView={{ scale: [0, 1] }}
-          transition={{ duration: 0.5 }}
-          className="app__header-circles"
-        >
-          {[
-            images.nextjs,
-            images.react,
-            images.css,
-            images.javascript,
-            images.tailwind,
-            images.sanity,
-          ].map((circle, index) => (
-            <div className="app__flex" key={`circle-${index}`}>
-              <img src={circle} alt="profile_bg" />
-            </div>
-          ))}
-        </motion.div>
-      )}
     </div>
   );
 };

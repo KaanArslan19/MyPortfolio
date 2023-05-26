@@ -57,6 +57,21 @@
     width: 100%;
   }
 }
+.footer-head {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: start;
+  color: var(--gray-color);
+  text-transform: capitalize;
+
+  @media screen and (min-width: 2000px) {
+    font-size: 4rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 2rem;
+  }
+}
 
 .app__footer-cards .app__footer-card:last-child {
   background-color: #f2f7fb;

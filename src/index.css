@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Syne&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap");
 
 :root {
-  --font-base: "Outfit", sans-serif;
+  --font-base: "Poppins", sans-serif;
 
-  --primary-color: #cbf381;
+  --primary-color: #a0ff01;
   --secondary-color: #4731d2;
   --black-color: #030303;
-  --lightGray-color: #e4e4e4;
+  --lightGray-color: #eeeeee;
   --gray-color: #6b7688;
   --brown-color: #46364a;
   --white-color: #ffffff;
