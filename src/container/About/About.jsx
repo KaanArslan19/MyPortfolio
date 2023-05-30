@@ -31,15 +31,11 @@ const About = () => {
     images.realtormobile,
     images.twittermobile,
     images.ecommercemobile,
-    images.ytmobile,
-    images.mediamobile,
   ];
   const projectImagesWeb = [
     images.realtorweb,
     images.twitterweb,
     images.ecommerceweb,
-    images.ytweb,
-    images.mediaweb,
   ];
 
   const activeButton = () => {
@@ -57,7 +53,7 @@ const About = () => {
   return (
     <>
       <div className="app__portfolio d-flex flex-column flex ">
-        <div className="d-flex flex-column flex align-items-center">
+        <div className="d-flex flex-column flex align-items-center mb-2">
           <h2 className="about-head ">
             User Experience is <span className="design-text">the Key</span>{" "}
             <br /> to have good Business
@@ -162,28 +158,6 @@ const About = () => {
               }}
             >
               E-Commerce Site
-            </button>
-            <button
-              id="3"
-              className="button-projects"
-              onClick={() => {
-                swiper.slideTo(3);
-                swiperMobile.slideTo(3);
-                activeButton();
-              }}
-            >
-              Youtube Clone
-            </button>
-            <button
-              id="4"
-              className="button-projects"
-              onClick={() => {
-                swiper.slideTo(4);
-                swiperMobile.slideTo(4);
-                activeButton();
-              }}
-            >
-              Movie Site
             </button>
           </div>
         ) : (

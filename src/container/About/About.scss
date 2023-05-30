@@ -22,15 +22,16 @@
   font-size: 2.5rem;
   font-weight: 800;
   text-align: start;
-  color: var(--secondary-color);
+  color: var(--gray-color);
   text-transform: capitalize;
+  margin-bottom: 6rem;
 
   @media screen and (min-width: 2000px) {
     font-size: 4rem;
   }
 
   @media screen and (max-width: 450px) {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -88,47 +89,40 @@
 
   :hover {
     background-color: #fff;
-    color: var(--secondary-color);
+    color: var(--gray-color);
     transform: scale(1.05) rotate(-1deg);
   }
 }
 
 .button-projects {
-  --c: #fff;
-
-  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%)
-      var(--_p, 100%) / 300% no-repeat,
-    var(--secondary-color);
-
-  color: #0000;
-  border-radius: 1px;
-  border: none;
-  transform: perspective(500px) rotateY(calc(20deg * var(--_i, -1)));
-  text-shadow: calc(var(--_i, -1) * 0.08em) -0.01em 0 var(--c),
-    calc(var(--_i, -1) * -0.08em) 0.01em 2px #0004;
-  outline-offset: 0.1em;
-  transition: 0.5s;
-
-  :hover,
-  :focus-visible {
-    --_p: 0%;
-    --_i: 1;
-  }
-
-  :active {
-    text-shadow: none;
-    color: var(--c);
-    box-shadow: inset 0 0 9e9Q #0005;
-    transition: 0s;
-  }
-}
-
-.button-projects {
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 500;
   font-size: 1.2rem;
   margin: 2rem;
   cursor: pointer;
   padding: 0.1em 0.3em;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--brown-color);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  @media (min-width: 768px) {
+    .button-54 {
+      padding: 0.25em 0.75em;
+    }
+  }
+}
+
+.button-projects {
 }
 
 .design-text {
@@ -139,25 +133,22 @@
   font-weight: 400;
 }
 
-.all-projects {
-  width: 50vw;
-}
-
 .all-projects-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   :hover {
-    color: var(--secondary-color);
-    background-color: var(--primary-color);
+    color: var(--gray-color);
   }
 }
 
 .active-button {
   background-color: #fff;
-  color: var(--secondary-color);
-  transform: scale(1.05) rotate(-1deg);
+  color: var(--gray-color);
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
 }
 
 #allprojects-button {

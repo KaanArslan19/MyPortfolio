@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <a href={images.cv} download>
-        <span className="app__navbar_CV">Download Resume</span>
+        <span className="app__navbar_CV">Resume</span>
       </a>
 
       <ul className="app__navbar-links">

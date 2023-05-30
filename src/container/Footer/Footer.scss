@@ -25,7 +25,7 @@
 
     margin: 1rem 0;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 2px;
     cursor: pointer;
     background-color: var(--primary-color);
 
@@ -45,7 +45,7 @@
       font-weight: 500;
     }
     &:hover {
-      box-shadow: 0 0 25px #fef4f5;
+      box-shadow: 0 0 5px #fef4f5;
     }
 
     @media screen and (max-width: 450px) {
@@ -69,7 +69,7 @@
   }
 
   @media screen and (max-width: 450px) {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -78,7 +78,7 @@
 }
 
 .app__footer-cards .app__footer-card:last-child:hover {
-  box-shadow: 0 0 25px #f2f7fb;
+  box-shadow: 0 0 5px #f2f7fb;
 }
 
 .app__footer-form {
@@ -90,9 +90,9 @@
     width: 100%;
 
     margin: 0.75rem 0;
-    border-radius: 10px;
+    border-radius: 2px;
     cursor: pointer;
-    background-color: var(--primary-color);
+    background-color: var(--gray-color);
 
     transition: all 0.3s ease-in-out;
 
@@ -101,11 +101,11 @@
       width: 100%;
       padding: 0.95rem;
       border: none;
-      border-radius: 7px;
+      border-radius: 2px;
       background-color: #f2f7fb;
 
       font-family: var(--font-base);
-      color: var(--secondary-color);
+      color: var(--gray-color);
       outline: none;
     }
 
@@ -114,17 +114,19 @@
     }
 
     &:hover {
-      box-shadow: 0 0 25px #f2f7fb;
+      box-shadow: 0 0 5px #f2f7fb;
     }
   }
 
   button {
     padding: 1rem 2rem;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--secondary-color);
-
+    border-radius: 2px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
     font-weight: 500;
+
     color: var(--white-color);
     outline: none;
     margin: 2rem 0 0 0;
@@ -134,7 +136,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #2430af;
+      background-color: var(--primary-color);
     }
   }
 
