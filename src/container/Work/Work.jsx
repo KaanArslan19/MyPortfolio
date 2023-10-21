@@ -44,7 +44,7 @@ const Work = () => {
     <>
       <h2 className="works_head"> Check out my latest Works</h2>
 
-      <div className="app__work-filter">
+      <div className={isMobile ? "app__work-filterMobile" : "app__work-filter"}>
         {[
           "Next JS",
           "React JS",

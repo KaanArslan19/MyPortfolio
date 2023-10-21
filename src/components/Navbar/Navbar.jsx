@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { HiXCircle } from "react-icons/hi";
 import { FiMenu } from "react-icons/fi";
-import { motion } from "framer-motion";
 
 import { images } from "../../constants";
 import "./Navbar.scss";
@@ -28,10 +27,7 @@ const Navbar = () => {
         <FiMenu onClick={() => setToggle(true)} />
 
         {toggle && (
-          <motion.div
-            whileInView={{ x: [300, 0] }}
-            transition={{ duration: 0.85, ease: "easeOut" }}
-          >
+          <div>
             <HiXCircle onClick={() => setToggle(false)} />
             <ul>
               {["home", "about", "work", "skills", "contact"].map((item) => (
@@ -42,7 +38,7 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         )}
       </div>
     </nav>

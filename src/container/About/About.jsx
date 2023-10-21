@@ -27,6 +27,10 @@ const About = () => {
   const isMidDevice = useMediaQuery({
     query: "(max-width: 1200px)",
   });
+  const marginAdjust = !isMobile ? "app_responsive_projects-marginAdjust" : "";
+  const projectSizeAdjust = !isMidDevice
+    ? "app_responsive_projects-sizeAdjust"
+    : "";
   const projectImagesMobile = [
     images.realtormobile,
     images.twittermobile,
@@ -60,7 +64,9 @@ const About = () => {
           </h2>
         </div>
 
-        <div className="app_responsive_projects row justify-content-center">
+        <div
+          className={`app_responsive_projects ${projectSizeAdjust} row justify-content-center`}
+        >
           {!isMobile && (
             <div className="app_responsive_design_mac d-flex col-10 justify-content-center p-0">
               <img className="frame" src={images.macframe} alt="mac-frame" />
@@ -90,7 +96,7 @@ const About = () => {
             </div>
           )}
           <div
-            className={`app_responsive_design_phone d-flex align-items-end p-0 ${
+            className={`app_responsive_design_phone ${marginAdjust} d-flex align-items-end p-0 ${
               isMobile ? "col-10 " : "col-2"
             }`}
           >

@@ -8,8 +8,16 @@
 }
 .app_responsive_design_phone {
   position: relative;
-  margin-left: -10%;
+
   margin-bottom: -1%;
+}
+
+.app_responsive_projects-marginAdjust {
+  margin-left: -10%;
+}
+.app_responsive_projects-sizeAdjust {
+  max-width: 60vw;
+  max-height: 60vh;
 }
 
 .app_responsive_design_mac {
@@ -24,7 +32,6 @@
   text-align: start;
   color: var(--gray-color);
   text-transform: capitalize;
-  margin-bottom: 6rem;
 
   @media screen and (min-width: 2000px) {
     font-size: 4rem;
@@ -37,6 +44,7 @@
 
 .project_image {
   position: absolute !important;
+
   top: 0 !important;
   left: 0 !important;
   bottom: 0 !important;
@@ -63,23 +71,6 @@
 
 .swiper-pagination {
   bottom: 0;
-}
-
-.swiper-pagination-bullet {
-  width: 6px;
-  height: 6px;
-  background: transparent;
-  border: 1px solid #68b8ff;
-  opacity: 1;
-}
-
-.swiper-pagination-bullet-active {
-  width: 20px;
-  height: 6px;
-  transition: width 0.5s;
-  border-radius: 5px;
-  background: #68b8ff;
-  border: 1px solid transparent;
 }
 
 .button-wrapper {
@@ -116,13 +107,8 @@
   touch-action: manipulation;
 
   @media (min-width: 768px) {
-    .button-54 {
-      padding: 0.25em 0.75em;
-    }
+    padding: 0.25em 0.75em;
   }
-}
-
-.button-projects {
 }
 
 .design-text {
@@ -149,8 +135,4 @@
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;
-}
-
-#allprojects-button {
-  margin: 2rem 0 0 0;
 }
