@@ -159,7 +159,7 @@ const About = () => {
                 activeButton();
               }}
             >
-              E-Commerce Site
+              ARS Concept Houses
             </button>
           </div>
         ) : (
