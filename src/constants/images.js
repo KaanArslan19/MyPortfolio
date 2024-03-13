@@ -6,8 +6,6 @@ import git from "../assets/git.png";
 import html from "../assets/html.png";
 import javascript from "../assets/javascript.png";
 
-import node from "../assets/node.png";
-
 import react from "../assets/react.png";
 import typescript from "../assets/typescript.png";
 import about01 from "../assets/about01.png";
@@ -34,9 +32,13 @@ import macframe from "../assets/macframe.png";
 import realtorweb from "../assets/realtormac.png";
 import twitterweb from "../assets/twitterweb.png";
 import twittermobile from "../assets/twittermobile.png";
-
+import delcapo_web from "../assets/delcapo_web.png";
+import delcapo_mobile from "../assets/delcapo_mobile.png";
 import cv from "../assets/CV.pdf";
-
+import akk_mobile from "../assets/akk_mobile.png";
+import akk_web from "../assets/akk_web.png";
+import ars_web from "../assets/ars_web.png";
+import ars_mobile from "../assets/ars_mobile.png";
 export default {
   email,
   mobile,
@@ -45,14 +47,14 @@ export default {
   git,
   html,
   javascript,
-  node,
   react,
   tailwind,
   sanity,
   typescript,
   about01,
   about02,
-
+  delcapo_web,
+  delcapo_mobile,
   about04,
   profile,
   circle,
@@ -60,6 +62,10 @@ export default {
   nextjs,
   phoneframe,
   macframe,
+  ars_web,
+  ars_mobile,
+  akk_mobile,
+  akk_web,
   realtormobile,
   realtorweb,
   twitterweb,

@@ -32,15 +32,11 @@ const About = () => {
     ? "app_responsive_projects-sizeAdjust"
     : "";
   const projectImagesMobile = [
-    images.realtormobile,
-    images.twittermobile,
-    images.ecommercemobile,
+    images.delcapo_mobile,
+    images.akk_mobile,
+    images.ars_mobile,
   ];
-  const projectImagesWeb = [
-    images.realtorweb,
-    images.twitterweb,
-    images.ecommerceweb,
-  ];
+  const projectImagesWeb = [images.delcapo_web, images.akk_web, images.ars_web];
 
   const activeButton = () => {
     const buttonElement = document.getElementById(`${swiper?.activeIndex}`);
@@ -56,7 +52,7 @@ const About = () => {
 
   return (
     <>
-      <div className="app__portfolio d-flex flex-column flex ">
+      <div className="app__portfolio d-flex flex-column flex  ">
         <div className="d-flex flex-column flex align-items-center mb-2">
           <h2 className="about-head ">
             User Experience is <span className="design-text">the Key</span>{" "}
@@ -140,7 +136,7 @@ const About = () => {
                 activeButton();
               }}
             >
-              Realtor Clone
+              Delcapo Ecommerce
             </button>
 
             <button
@@ -152,7 +148,7 @@ const About = () => {
                 activeButton();
               }}
             >
-              Twitter Clone
+              Landing Page with Figma Design
             </button>
             <button
               id="2"
