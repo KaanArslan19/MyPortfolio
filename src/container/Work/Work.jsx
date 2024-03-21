@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AiFillEye, AiFillGithub } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
@@ -24,7 +24,6 @@ const Work = () => {
       setFilterWork(data);
     });
   }, []);
-
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
@@ -39,20 +38,12 @@ const Work = () => {
       }
     }, 500);
   };
-
   return (
     <>
       <h2 className="works_head"> Check out my latest Works</h2>
 
       <div className={isMobile ? "app__work-filterMobile" : "app__work-filter"}>
-        {[
-          "Next JS",
-          "React JS",
-          "Tailwind CSS",
-          "Firebase",
-          "Sanity",
-          "All",
-        ].map((item, index) => (
+        {["Next JS", "React JS", "All"].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
@@ -73,14 +64,14 @@ const Work = () => {
         {filterWork.map((work, index) => (
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
+              <img src={urlFor(work.thumbnail)} alt={work.name} />
 
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{ duration: 0.25 }}
                 className="app__work-hover app__flex"
               >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
+                <a href={`/project-details/${work._id}`}>
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
@@ -90,25 +81,13 @@ const Work = () => {
                     <AiFillEye />
                   </motion.div>
                 </a>
-                {!isMobile && (
-                  <a href={work.codeLink} target="_blank" rel="noreferrer">
-                    <motion.div
-                      whileInView={{ scale: [0, 1] }}
-                      whileHover={{ scale: [1, 0.9] }}
-                      transition={{ duration: 0.25 }}
-                      className="app__flex"
-                    >
-                      <AiFillGithub />
-                    </motion.div>
-                  </a>
-                )}
               </motion.div>
             </div>
 
             <div className="app__work-content app__flex">
               <h4 className="bold-text">{work.title}</h4>
               <p className="p-text" style={{ marginTop: 10 }}>
-                {work.description}
+                {work.shortDescription}
               </p>
 
               <div className="app__work-tag app__flex">

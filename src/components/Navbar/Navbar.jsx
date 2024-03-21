@@ -9,14 +9,17 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="app__navbar">
+    <nav className="app__navbar py-4 md:text-xl">
       <a href={images.cv} download>
-        <span className="app__navbar_CV">Resume</span>
+        <span className="app__navbar_CV flex items-center">Resume</span>
       </a>
 
-      <ul className="app__navbar-links">
+      <ul className="app__navbar-links ">
         {["home", "about", "work", "skills", "contact"].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
+          <li
+            className="app__flex text-sm xl:text-[16px] "
+            key={`link-${item}`}
+          >
             <div />
             <a href={`#${item}`}>{item}</a>
           </li>
