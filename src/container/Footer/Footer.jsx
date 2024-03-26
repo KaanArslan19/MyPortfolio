@@ -41,7 +41,7 @@ const Footer = () => {
 
   return (
     <>
-      <h2 className="footer-head">Send me a message</h2>
+      <h2 className="footer-head tracking-tighter">Send me a message</h2>
 
       <div className="app__footer-cards">
         <div className="app__footer-card ">

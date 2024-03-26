@@ -28,18 +28,18 @@
 }
 .about-head {
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 600;
   text-align: start;
   color: var(--gray-color);
+
   text-transform: capitalize;
-  margin-bottom: 2rem;
 
   @media screen and (min-width: 2000px) {
     font-size: 4rem;
   }
 
   @media screen and (max-width: 450px) {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -88,7 +88,7 @@
 
 .button-projects {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.2rem;
   margin: 2rem;
   cursor: pointer;
@@ -113,8 +113,8 @@
 }
 
 .design-text {
-  font-style: italic;
   font-weight: 400;
+  color: var(--brown-color);
 }
 .business-text {
   font-weight: 400;

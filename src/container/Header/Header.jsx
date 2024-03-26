@@ -2,25 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { AppWrap } from "../../wrapper";
-import { images } from "../../constants";
 import "./Header.scss";
-import { useMediaQuery } from "react-responsive";
-
-const scaleVariants = {
-  whileInView: {
-    scale: [0, 1],
-    opacity: [0, 1],
-    transition: {
-      duration: 1,
-      ease: "easeInOut",
-    },
-  },
-};
 
 const Header = () => {
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
   return (
     <div id="home" className="app__header app__flex">
       <motion.div
@@ -31,21 +15,25 @@ const Header = () => {
         <div className="app__header-badge">
           <div className="app__flex">
             <div style={{ marginLeft: 20 }}>
-              <p className="p-text-head">Hi, My name is </p>
-              <h1 className="text-focus-in head-text">Kaan Arslan.</h1>
-              <h2 className="head-text-desc">
+              <p className="text-lg md:text-xl mb-4 text-brown-color">
+                Hi, My name is{" "}
+              </p>
+              <h1 className="text-focus-in  head-text">Kaan Arslan.</h1>
+              <h2 className="head-text-desc text-brown-color">
                 I build projects using the latest web technologies.
               </h2>
-              <div className="head-text-content">
+              <div className="head-text-content max-w-[850px] text-gray-color">
                 <p>
-                  An electric and electronic engineer specialized in interface
-                  design and communication between various hardware and motion
-                  control software to make the machines work.
+                  As an electrical and electronic engineer with a focus on
+                  interface design and communication between hardware and motion
+                  control software, I've honed my skills in making machines work
+                  seamlessly.
                 </p>
                 <p>
-                  Decided to switch career to build web and mobile applications
-                  for clients which is similar to the area that I had proven
-                  experience.
+                  Now, I've made the decision to switch my career towards
+                  building web and mobile applications for clients. This
+                  transition aligns with my proven expertise and allows me to
+                  continue delivering outstanding experiences in a new realm.
                 </p>
               </div>
             </div>

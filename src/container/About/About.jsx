@@ -53,10 +53,10 @@ const About = () => {
   return (
     <>
       <div className="app__portfolio d-flex flex-column flex  ">
-        <div className="d-flex flex-column flex align-items-center mb-2">
-          <h2 className="about-head ">
-            User Experience is <span className="design-text">the Key</span>{" "}
-            <br /> to have good Business
+        <div className="d-flex flex-column flex align-items-center mb-8">
+          <h2 className="about-head text-center tracking-tighter mb-8 md:mb-16 ">
+            Seamless Journeys <br />
+            <span className="design-text">Unlocking Success</span>{" "}
           </h2>
         </div>
 
@@ -167,6 +167,7 @@ const About = () => {
             href="https://github.com/KaanArslan19"
             className="all-projects-wrap"
             target="_blank"
+            rel="noreferrer"
           >
             <button
               id="allprojects-button"

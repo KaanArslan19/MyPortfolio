@@ -1,21 +1,28 @@
 import React from "react";
-import { About, Footer, Header, Skills, Testimonial, Work } from "./container";
-import { Navbar } from "./components";
+
 import "./App.scss";
 
 import "bootstrap/dist/css/bootstrap.css";
-const App = () => {
-  return (
-    <div className="app">
-      <Navbar />
-      <Header />
-      <About />
-      <Work />
-      <Skills />
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
+import ProjectDetails from "./pages/ProjectDetails";
+import RootLayout from "./pages/Root";
+import ErrorPage from "./pages/Error";
 
-      <Footer />
-    </div>
-  );
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/project-details/:projectId", element: <ProjectDetails /> },
+      { path: "/project-details/:projectId", element: <ProjectDetails /> },
+    ],
+  },
+]);
+const App = () => {
+  return <RouterProvider router={router} />;
 };
 
 export default App;

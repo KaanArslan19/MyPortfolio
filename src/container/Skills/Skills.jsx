@@ -23,9 +23,10 @@ const Skills = () => {
     });
   }, []);
   const sortedExperiences = experiences.sort((a, b) => b.year - a.year);
+  console.log(skills);
   return (
     <>
-      <h2 className="skills_head">Skills & Experiences</h2>
+      <h2 className="skills_head tracking-tighter">Skills & Experiences</h2>
 
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
@@ -34,7 +35,7 @@ const Skills = () => {
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill.id}
+              key={skill.name}
             >
               <div
                 className="app__flex"

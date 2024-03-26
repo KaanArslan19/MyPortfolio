@@ -40,7 +40,10 @@ const Work = () => {
   };
   return (
     <>
-      <h2 className="works_head"> Check out my latest Works</h2>
+      <h2 className="works_head tracking-tighter">
+        {" "}
+        Explore My Latest Creations
+      </h2>
 
       <div className={isMobile ? "app__work-filterMobile" : "app__work-filter"}>
         {["Next JS", "React JS", "All"].map((item, index) => (
@@ -71,7 +74,13 @@ const Work = () => {
                 transition={{ duration: 0.25 }}
                 className="app__work-hover app__flex"
               >
-                <a href={`/project-details/${work._id}`}>
+                <a
+                  href={`${
+                    work.description
+                      ? "/project-details/" + work._id
+                      : work.projectLink
+                  }  `}
+                >
                   <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
