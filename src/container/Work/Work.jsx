@@ -41,7 +41,6 @@ const Work = () => {
   return (
     <>
       <h2 className="works_head tracking-tighter">
-        {" "}
         Explore My Latest Creations
       </h2>
 

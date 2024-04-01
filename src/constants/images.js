@@ -35,6 +35,10 @@ import akk_mobile from "../assets/akk_mobile.png";
 import akk_web from "../assets/akk_web.png";
 import ars_web from "../assets/ars_web.png";
 import ars_mobile from "../assets/ars_mobile.png";
+
+import delcapo_landing_web from "../assets/delcapo_landing_web.png";
+import delcapo_landing_mobile from "../assets/delcapo_landing_mobile.png";
+
 export default {
   email,
   mobile,
@@ -47,7 +51,8 @@ export default {
   tailwind,
   sanity,
   typescript,
-
+  delcapo_landing_web,
+  delcapo_landing_mobile,
   delcapo_web,
   delcapo_mobile,
   profile,

@@ -33,10 +33,16 @@ const About = () => {
     : "";
   const projectImagesMobile = [
     images.delcapo_mobile,
+    images.delcapo_landing_mobile,
     images.akk_mobile,
     images.ars_mobile,
   ];
-  const projectImagesWeb = [images.delcapo_web, images.akk_web, images.ars_web];
+  const projectImagesWeb = [
+    images.delcapo_web,
+    images.delcapo_landing_web,
+    images.akk_web,
+    images.ars_web,
+  ];
 
   const activeButton = () => {
     const buttonElement = document.getElementById(`${swiper?.activeIndex}`);
@@ -54,7 +60,7 @@ const About = () => {
     <>
       <div className="app__portfolio d-flex flex-column flex  ">
         <div className="d-flex flex-column flex align-items-center mb-8">
-          <h2 className="about-head text-center tracking-tighter mb-8 md:mb-16 ">
+          <h2 className="about-head text-center tracking-tighter mb-8 xl:mb-16 ">
             Seamless Journeys <br />
             <span className="design-text">Unlocking Success</span>{" "}
           </h2>
@@ -138,24 +144,34 @@ const About = () => {
             >
               Delcapo Ecommerce
             </button>
-
             <button
               id="1"
-              className={`button-projects`}
+              className="button-projects"
               onClick={() => {
                 swiper.slideTo(1);
                 swiperMobile.slideTo(1);
                 activeButton();
               }}
             >
-              Landing Page with Figma Design
+              Delcapo Landing
             </button>
             <button
               id="2"
-              className="button-projects"
+              className={`button-projects`}
               onClick={() => {
                 swiper.slideTo(2);
                 swiperMobile.slideTo(2);
+                activeButton();
+              }}
+            >
+              Landing Page with Figma Design
+            </button>
+            <button
+              id="3"
+              className="button-projects"
+              onClick={() => {
+                swiper.slideTo(3);
+                swiperMobile.slideTo(3);
                 activeButton();
               }}
             >
