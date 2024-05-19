@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { client } from "../client";
 import ProjectCarousel from "../components/ui/ProjectCarousel";
 import { VscDebugBreakpointLogUnverified } from "react-icons/vsc";
-import { Button } from "@material-tailwind/react";
 const ProjectDetails = () => {
   const params = useParams();
   const projectId = params.projectId;
@@ -38,11 +37,6 @@ const ProjectDetails = () => {
           </li>
         ))}
       </ul>
-      <div className="flex justify-end mt-4">
-        <a href={project.projectLink} target="_blank" rel="noreferrer">
-          <Button className="bg-secondary-color">Check The real deal !</Button>
-        </a>
-      </div>
     </div>
   );
 };

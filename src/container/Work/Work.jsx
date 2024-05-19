@@ -24,6 +24,7 @@ const Work = () => {
       setFilterWork(data);
     });
   }, []);
+  console.log(works);
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
