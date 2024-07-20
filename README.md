@@ -4,7 +4,7 @@
 
 ## Description
 
-Iphone and mac frames used with 2 sliders (using swiper library) at once to demonstrate and focus more on responsiveness of the projects that I design. Higher order component used for cleaner code.
+This portfolio showcases my design and development skills with a strong emphasis on responsive design. It features iPhone and Mac frames to highlight the adaptability of my projects across different devices. Two sliders, implemented using the Swiper library, provide an interactive way to navigate through various projects. Higher-order components are used to maintain cleaner and more efficient code architecture, enhancing the overall development process and project maintainability.
 
 ## Technologies Used
 
