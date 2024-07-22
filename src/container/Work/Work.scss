@@ -16,18 +16,12 @@
   .app__work-filter-item {
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    background-color: #fff;
     color: var(--gray-color);
     font-weight: 400;
-
+    background-color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 0.5rem;
-
-    &:hover {
-      background-color: var(--secondary-color);
-      color: #fff;
-    }
 
     @media screen and (min-width: 2000px) {
       padding: 1rem 2rem;
@@ -40,8 +34,9 @@
   }
 
   .item-active {
-    background-color: var(--secondary-color);
+    background-color: transparent;
     color: #fff;
+    font-weight: 800;
   }
 }
 

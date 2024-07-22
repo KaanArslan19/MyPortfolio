@@ -24,7 +24,6 @@ const Work = () => {
       setFilterWork(data);
     });
   }, []);
-  console.log(works);
   const handleWorkFilter = (item) => {
     setActiveFilter(item);
     setAnimateCard([{ y: 100, opacity: 0 }]);
@@ -46,7 +45,7 @@ const Work = () => {
       </h2>
 
       <div className={isMobile ? "app__work-filterMobile" : "app__work-filter"}>
-        {["Next JS", "React JS", "All"].map((item, index) => (
+        {["Landing Pages", "E-Commerce", "All"].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}

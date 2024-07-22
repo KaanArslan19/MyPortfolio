@@ -22,8 +22,8 @@ const Skills = () => {
       setSkills(data);
     });
   }, []);
-  const sortedExperiences = experiences.sort((a, b) => b.year - a.year);
   console.log(skills);
+  const sortedExperiences = experiences.sort((a, b) => b.year - a.year);
   return (
     <>
       <h2 className="skills_head tracking-tighter">Skills & Experiences</h2>
@@ -35,12 +35,9 @@ const Skills = () => {
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
               className="app__skills-item app__flex"
-              key={skill.name}
+              key={skill._id}
             >
-              <div
-                className="app__flex"
-                style={{ backgroundColor: skill.bgColor }}
-              >
+              <div className="app__flex bg-transparent">
                 <img src={urlFor(skill.icon)} alt={skill.name} />
               </div>
               <p className="p-text">{skill.name}</p>
@@ -54,15 +51,14 @@ const Skills = () => {
                 <p className="bold-text">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
-                  <>
+                {experience.works.map((work, index) => (
+                  <div key={index}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
                       className="app__skills-exp-work"
                       data-tip
                       data-for={work.name}
-                      key={work.id}
                     >
                       <h4 className="bold-text">{work.name}</h4>
                       <p className="p-text">{work.company}</p>
@@ -75,7 +71,7 @@ const Skills = () => {
                     >
                       {work.desc}
                     </ReactTooltip>
-                  </>
+                  </div>
                 ))}
               </motion.div>
             </motion.div>

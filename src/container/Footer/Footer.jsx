@@ -45,13 +45,8 @@ const Footer = () => {
 
       <div className="app__footer-cards">
         <div className="app__footer-card ">
-          <a href="mailto:kaanarslan35@gmail.com" className="p-text">
+          <a href="mailto:kaanarslan35@gmail.com" className="p-text_mail">
             kaanarslan35@gmail.com
-          </a>
-        </div>
-        <div className="app__footer-card">
-          <a href="tel:+90 (531) 285-5748" className="p-text">
-            +90 (531) 285-5748
           </a>
         </div>
       </div>
