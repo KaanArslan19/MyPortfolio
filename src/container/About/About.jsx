@@ -32,12 +32,14 @@ const About = () => {
     ? "app_responsive_projects-sizeAdjust"
     : "";
   const projectImagesMobile = [
+    images.next_ecomm_mobile,
     images.delcapo_mobile,
     images.delcapo_landing_mobile,
     images.akk_mobile,
     images.ars_mobile,
   ];
   const projectImagesWeb = [
+    images.next_ecomm_mac,
     images.delcapo_web,
     images.delcapo_landing_web,
     images.akk_web,
@@ -59,8 +61,8 @@ const About = () => {
   return (
     <>
       <div className="app__portfolio d-flex flex-column flex  ">
-        <div className="d-flex flex-column flex align-items-center mb-8">
-          <h2 className="about-head text-center tracking-tighter mb-8 xl:mb-16 ">
+        <div className="d-flex flex-column flex align-items-center ">
+          <h2 className="about-head text-center tracking-tighter mb-4  ">
             Seamless Journeys <br />
             <span className="design-text">Unlocking Success</span>{" "}
           </h2>
@@ -132,17 +134,17 @@ const About = () => {
           </div>
         </div>
         {!isMidDevice ? (
-          <div className="button-wrapper ">
+          <div className="button-wrapper  ">
             <button
               id="0"
-              className="button-projects"
+              className="button-projects "
               onClick={() => {
                 swiper.slideTo(0);
                 swiperMobile.slideTo(0);
                 activeButton();
               }}
             >
-              Delcapo Ecommerce
+              Full-stack E-commerce
             </button>
             <button
               id="1"
@@ -153,25 +155,36 @@ const About = () => {
                 activeButton();
               }}
             >
-              Delcapo Landing
+              Delcapo E-commerce
             </button>
             <button
               id="2"
-              className={`button-projects`}
+              className="button-projects"
               onClick={() => {
                 swiper.slideTo(2);
                 swiperMobile.slideTo(2);
                 activeButton();
               }}
             >
-              Landing Page with Figma Design
+              Delcapo Landing
             </button>
             <button
               id="3"
-              className="button-projects"
+              className={`button-projects`}
               onClick={() => {
                 swiper.slideTo(3);
                 swiperMobile.slideTo(3);
+                activeButton();
+              }}
+            >
+              Landing Page with Figma Design
+            </button>
+            <button
+              id="4"
+              className="button-projects"
+              onClick={() => {
+                swiper.slideTo(4);
+                swiperMobile.slideTo(4);
                 activeButton();
               }}
             >

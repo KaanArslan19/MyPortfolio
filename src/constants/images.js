@@ -38,6 +38,8 @@ import ars_mobile from "../assets/ars_mobile.png";
 
 import delcapo_landing_web from "../assets/delcapo_landing_web.png";
 import delcapo_landing_mobile from "../assets/delcapo_landing_mobile.png";
+import next_ecomm_mac from "../assets/next_ecomm_mac.png";
+import next_ecomm_mobile from "../assets/next_ecomm_mobile.png";
 
 export default {
   email,
@@ -55,6 +57,8 @@ export default {
   delcapo_landing_mobile,
   delcapo_web,
   delcapo_mobile,
+  next_ecomm_mac,
+  next_ecomm_mobile,
   profile,
   circle,
   logo,

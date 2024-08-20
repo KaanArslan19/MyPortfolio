@@ -16,7 +16,7 @@ const Header = () => {
           <div className="app__flex">
             <div style={{ marginLeft: 20 }}>
               <p className="text-lg md:text-xl mb-4 text-brown-color">
-                Hi, My name is{" "}
+                Hi, My name is
               </p>
               <h1 className="text-focus-in  head-text">Kaan Arslan.</h1>
               <h2 className="head-text-desc text-brown-color">
