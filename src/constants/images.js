@@ -30,7 +30,6 @@ import twitterweb from "../assets/twitterweb.png";
 import twittermobile from "../assets/twittermobile.png";
 import delcapo_web from "../assets/delcapo_web.png";
 import delcapo_mobile from "../assets/delcapo_mobile.png";
-import cv from "../assets/CV.pdf";
 import akk_mobile from "../assets/akk_mobile.png";
 import akk_web from "../assets/akk_web.png";
 import ars_web from "../assets/ars_web.png";
@@ -79,5 +78,4 @@ export default {
   mediaweb,
   ecommercemobile,
   ecommerceweb,
-  cv,
 };

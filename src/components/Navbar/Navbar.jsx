@@ -10,9 +10,9 @@ const Navbar = () => {
 
   return (
     <nav className="app__navbar py-4 md:text-xl">
-      <a href={images.cv} download>
+      {/*       <a href={images.cv} download>
         <span className="app__navbar_CV flex items-center">Resume</span>
-      </a>
+      </a> */}
 
       <ul className="app__navbar-links ">
         {["home", "about", "work", "skills", "contact"].map((item) => (

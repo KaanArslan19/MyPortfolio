@@ -14,15 +14,15 @@ const Header = () => {
       >
         <div className="app__header-badge">
           <div className="app__flex">
-            <div style={{ marginLeft: 20 }}>
+            <div>
               <p className="text-lg md:text-xl mb-4 text-brown-color">
                 Hi, My name is
               </p>
               <h1 className="text-focus-in  head-text">Kaan Arslan.</h1>
-              <h2 className="head-text-desc text-brown-color">
+              <h2 className="head-text-desc text-brown-color tracking-tighter">
                 I build projects using the latest web technologies.
               </h2>
-              <div className="head-text-content max-w-[850px] text-gray-color">
+              <div className="head-text-content  max-w-[850px] text-gray-color ">
                 <p>
                   As an electrical and electronic engineer with a focus on
                   interface design and communication between hardware and motion
