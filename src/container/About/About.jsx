@@ -25,7 +25,7 @@ const About = () => {
     query: "(max-width: 768px)",
   });
   const isMidDevice = useMediaQuery({
-    query: "(max-width: 1320px)",
+    query: "(max-width: 1400px)",
   });
   const marginAdjust = !isMobile ? "app_responsive_projects-marginAdjust" : "";
   const projectSizeAdjust = !isMidDevice

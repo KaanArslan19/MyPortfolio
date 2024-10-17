@@ -74,6 +74,7 @@ const Work = () => {
                 className="app__work-hover app__flex"
               >
                 <a
+                  target="_blank"
                   href={`${
                     work.description
                       ? "/project-details/" + work._id
