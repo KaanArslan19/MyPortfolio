@@ -14,7 +14,12 @@
   --brown-color: #201e1c;
   --white-color: #ffffff;
 }
-
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 * {
   box-sizing: border-box;
   padding: 0;
