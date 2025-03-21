@@ -22,20 +22,6 @@ const Header = () => {
               <h2 className="head-text-desc text-brown-color tracking-tighter">
                 I build projects using the latest web technologies.
               </h2>
-              <div className="head-text-content  max-w-[850px] text-gray-color ">
-                <p>
-                  As an electrical and electronic engineer with a focus on
-                  interface design and communication between hardware and motion
-                  control software, I've honed my skills in making machines work
-                  seamlessly.
-                </p>
-                <p>
-                  Now, I've made the decision to switch my career towards
-                  building web and mobile applications for clients. This
-                  transition aligns with my proven expertise and allows me to
-                  continue delivering outstanding experiences in a new realm.
-                </p>
-              </div>
             </div>
           </div>
         </div>
