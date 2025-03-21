@@ -5,7 +5,7 @@
 @tailwind utilities;
 :root {
   --font-base: "Poppins", sans-serif;
-  --vh: 1vh;
+  --vh: 3vh;
   --primary-color: #a0ff01;
   --secondary-color: #4731d2;
   --black-color: #030303;
