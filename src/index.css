@@ -5,7 +5,7 @@
 @tailwind utilities;
 :root {
   --font-base: "Poppins", sans-serif;
-
+  --vh: 3vh;
   --primary-color: #a0ff01;
   --secondary-color: #4731d2;
   --black-color: #030303;
@@ -15,14 +15,13 @@
   --white-color: #ffffff;
 }
 html,
-body {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+}
+
+.app__header-info {
+  height: calc(var(--vh, 1vh) * 100);
 }
