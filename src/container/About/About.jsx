@@ -32,16 +32,16 @@ const About = () => {
     ? "app_responsive_projects-sizeAdjust"
     : "";
   const projectImagesMobile = [
+    images.hexbox_mobile,
     images.next_ecomm_mobile,
     images.delcapo_mobile,
-    images.delcapo_landing_mobile,
     images.akk_mobile,
     images.ars_mobile,
   ];
   const projectImagesWeb = [
+    images.hexbox_web,
     images.next_ecomm_mac,
     images.delcapo_web,
-    images.delcapo_landing_web,
     images.akk_web,
     images.ars_web,
   ];
@@ -144,10 +144,21 @@ const About = () => {
                 activeButton();
               }}
             >
-              Full-stack E-commerce
+              Hexbox
             </button>
             <button
               id="1"
+              className="button-projects "
+              onClick={() => {
+                swiper.slideTo(0);
+                swiperMobile.slideTo(0);
+                activeButton();
+              }}
+            >
+              Full-stack E-commerce
+            </button>
+            <button
+              id="2"
               className="button-projects"
               onClick={() => {
                 swiper.slideTo(1);
@@ -157,17 +168,7 @@ const About = () => {
             >
               Delcapo E-commerce
             </button>
-            <button
-              id="2"
-              className="button-projects"
-              onClick={() => {
-                swiper.slideTo(2);
-                swiperMobile.slideTo(2);
-                activeButton();
-              }}
-            >
-              Delcapo Landing
-            </button>
+
             <button
               id="3"
               className={`button-projects`}

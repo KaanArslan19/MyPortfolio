@@ -39,7 +39,8 @@ import delcapo_landing_web from "../assets/delcapo_landing_web.png";
 import delcapo_landing_mobile from "../assets/delcapo_landing_mobile.png";
 import next_ecomm_mac from "../assets/next_ecomm_mac.png";
 import next_ecomm_mobile from "../assets/next_ecomm_mobile.png";
-
+import hexbox_web from "../assets/hexbox_web.png";
+import hexbox_mobile from "../assets/hexbox_mobile.png";
 export default {
   email,
   mobile,
@@ -78,4 +79,6 @@ export default {
   mediaweb,
   ecommercemobile,
   ecommerceweb,
+  hexbox_web,
+  hexbox_mobile,
 };
