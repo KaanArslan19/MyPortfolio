@@ -11,7 +11,7 @@ import next_ecomm_mac from "../assets/next_ecomm_mac.png";
 import next_ecomm_mobile from "../assets/next_ecomm_mobile.png";
 import hexbox_web from "../assets/hexbox_web.png";
 import hexbox_mobile from "../assets/hexbox_mobile.png";
-export default {
+const images = {
   delcapo_web,
   delcapo_mobile,
   next_ecomm_mac,
@@ -25,3 +25,5 @@ export default {
   hexbox_web,
   hexbox_mobile,
 };
+
+export default images;

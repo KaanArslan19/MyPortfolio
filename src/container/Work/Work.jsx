@@ -75,6 +75,7 @@ const Work = () => {
               >
                 <a
                   target="_blank"
+                  rel="noreferrer"
                   href={`${
                     work.description
                       ? "/project-details/" + work._id

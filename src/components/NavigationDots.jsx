@@ -6,7 +6,9 @@ const NavigationDots = ({ active }) => (
         key={item + index}
         className="app__navigation-dot"
         style={active === item ? { backgroundColor: "#a0ff01" } : {}}
-      />
+      >
+        <span className="sr-only">{item}</span>
+      </a>
     ))}
   </div>
 );
