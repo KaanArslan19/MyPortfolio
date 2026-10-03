@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Tooltip as ReactTooltip } from "react-tooltip";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 import "./Skills.scss";
+
+const listVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.05 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
@@ -22,60 +31,61 @@ const Skills = () => {
       setSkills(data);
     });
   }, []);
-  console.log(skills);
-  const sortedExperiences = experiences.sort((a, b) => b.year - a.year);
+
+  const sortedExperiences = [...experiences].sort((a, b) => b.year - a.year);
   return (
     <>
       <h2 className="skills_head tracking-tighter">Skills & Experiences</h2>
 
       <div className="app__skills-container">
-        <motion.div className="app__skills-list">
-          {skills.map((skill) => (
-            <motion.div
-              whileInView={{ opacity: [0, 1] }}
-              transition={{ duration: 0.5 }}
-              className="app__skills-item app__flex"
-              key={skill._id}
-            >
-              <div className="app__flex bg-transparent">
-                <img src={urlFor(skill.icon)} alt={skill.name} />
-              </div>
-              <p className="p-text">{skill.name}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-        <div className="app__skills-exp">
-          {sortedExperiences.map((experience) => (
-            <motion.div className="app__skills-exp-item" key={experience.id}>
-              <div className="app__skills-exp-year">
-                <p className="bold-text">{experience.year}</p>
-              </div>
-              <motion.div className="app__skills-exp-works">
+        <div className="app__skills-col app__skills-col--skills">
+          <h3 className="app__skills-subhead">Skills</h3>
+          <motion.div
+            className="app__skills-list"
+            variants={listVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {skills.map((skill) => (
+              <motion.div
+                variants={itemVariants}
+                className="app__skills-item"
+                key={skill._id}
+              >
+                <div className="app__skills-icon">
+                  <img src={urlFor(skill.icon)} alt={skill.name} />
+                </div>
+                <p>{skill.name}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        <div className="app__skills-col app__skills-col--exp">
+          <h3 className="app__skills-subhead">Experience</h3>
+          <div className="app__skills-exp">
+            {sortedExperiences.map((experience) => (
+              <motion.div
+                className="app__skills-exp-item"
+                key={experience._id}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.4 }}
+              >
+                <span className="app__skills-exp-dot" />
+                <span className="app__skills-exp-year">{experience.year}</span>
                 {experience.works.map((work, index) => (
-                  <div key={index}>
-                    <motion.div
-                      whileInView={{ opacity: [0, 1] }}
-                      transition={{ duration: 0.5 }}
-                      className="app__skills-exp-work"
-                      data-tip
-                      data-for={work.name}
-                    >
-                      <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
-                    </motion.div>
-                    <ReactTooltip
-                      id={work.name}
-                      effect="solid"
-                      arrowColor="#fff"
-                      className="skills-tooltip"
-                    >
-                      {work.desc}
-                    </ReactTooltip>
+                  <div className="app__skills-exp-work" key={index}>
+                    <h4 className="bold-text">{work.name}</h4>
+                    <p className="app__skills-exp-company">{work.company}</p>
+                    {work.desc && <p className="p-text">{work.desc}</p>}
                   </div>
                 ))}
               </motion.div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

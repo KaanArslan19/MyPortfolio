@@ -1,21 +1,48 @@
-import React, { useState } from "react";
-import { HiXCircle } from "react-icons/hi";
-import { FiMenu } from "react-icons/fi";
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 
-import { images } from "../../constants";
 import "./Navbar.scss";
+
+const SECTIONS = ["home", "showcase", "work", "skills", "contact"];
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!toggle) return;
+    const onKey = (e) => e.key === "Escape" && setToggle(false);
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [toggle]);
 
   return (
     <nav className="app__navbar py-4 md:text-xl">
-      {/*       <a href={images.cv} download>
-        <span className="app__navbar_CV flex items-center">Resume</span>
-      </a> */}
+      <img className="app__navbar-logo" src="/logo.png" alt="logo" />
 
       <ul className="app__navbar-links ">
-        {["home", "about", "work", "skills", "contact"].map((item) => (
+        {SECTIONS.map((item) => (
           <li
             className="app__flex text-sm xl:text-[16px] "
             key={`link-${item}`}
@@ -27,23 +54,48 @@ const Navbar = () => {
       </ul>
 
       <div className="app__navbar-menu">
-        <FiMenu onClick={() => setToggle(true)} />
+        <button
+          type="button"
+          aria-label="Open menu"
+          aria-expanded={toggle}
+          onClick={() => setToggle(true)}
+        >
+          <FiMenu />
+        </button>
+      </div>
 
-        {toggle && (
-          <div>
-            <HiXCircle onClick={() => setToggle(false)} />
+      {createPortal(
+        <div className={`app__sidemenu ${toggle ? "open" : ""}`}>
+          <div className="app__sidemenu-backdrop" onClick={() => setToggle(false)} />
+          <aside className="app__sidemenu-panel" aria-hidden={!toggle}>
+            <header>
+              <img src="/logo.png" alt="logo" />
+              <button
+                type="button"
+                aria-label="Close menu"
+                tabIndex={toggle ? 0 : -1}
+                onClick={() => setToggle(false)}
+              >
+                <FiX />
+              </button>
+            </header>
             <ul>
-              {["home", "about", "work", "skills", "contact"].map((item) => (
-                <li key={item}>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
+              {SECTIONS.map((item) => (
+                <li key={item} className={active === item ? "active" : ""}>
+                  <a
+                    href={`#${item}`}
+                    tabIndex={toggle ? 0 : -1}
+                    onClick={() => setToggle(false)}
+                  >
                     {item}
                   </a>
                 </li>
               ))}
             </ul>
-          </div>
-        )}
-      </div>
+          </aside>
+        </div>,
+        document.body
+      )}
     </nav>
   );
 };

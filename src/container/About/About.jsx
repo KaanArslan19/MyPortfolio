@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { AppWrap, MotionWrap } from "../../wrapper";
 import "./About.scss";
@@ -13,6 +13,7 @@ import SwiperCore, {
 } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 import { useMediaQuery } from "react-responsive";
 
@@ -31,37 +32,41 @@ const About = () => {
   const projectSizeAdjust = !isMidDevice
     ? "app_responsive_projects-sizeAdjust"
     : "";
-  const projectImagesMobile = [
-    images.hexbox_mobile,
-    images.next_ecomm_mobile,
-    images.delcapo_mobile,
-    images.akk_mobile,
-    images.ars_mobile,
+  const projects = [
+    { name: "Hexbox", web: images.hexbox_web, mobile: images.hexbox_mobile },
+    {
+      name: "E-commerce",
+      web: images.next_ecomm_mac,
+      mobile: images.next_ecomm_mobile,
+    },
+    { name: "Delcapo", web: images.delcapo_web, mobile: images.delcapo_mobile },
+    { name: "Landing Page", web: images.akk_web, mobile: images.akk_mobile },
+    { name: "ARS Concept", web: images.ars_web, mobile: images.ars_mobile },
   ];
-  const projectImagesWeb = [
-    images.hexbox_web,
-    images.next_ecomm_mac,
-    images.delcapo_web,
-    images.akk_web,
-    images.ars_web,
-  ];
+  const [active, setActive] = useState(0);
+  const tabsRef = useRef(null);
 
-  const activeButton = () => {
-    const buttonElement = document.getElementById(`${swiper?.activeIndex}`);
-    const btnElList = document.querySelectorAll(".button-projects");
-    btnElList.forEach(() => {
-      document
-        .querySelector(".active-button")
-        ?.classList.remove("active-button");
+  useEffect(() => {
+    const bar = tabsRef.current;
+    const tab = bar?.children[active];
+    if (!tab) return;
+    bar.scrollTo({
+      left: tab.offsetLeft - (bar.clientWidth - tab.clientWidth) / 2,
+      behavior: "smooth",
     });
+  }, [active]);
 
-    buttonElement?.classList.add("active-button");
+  const selectProject = (index) => {
+    swiper?.slideToLoop(index);
+    swiperMobile?.slideToLoop(index);
+    setActive(index);
   };
 
   return (
     <>
       <div className="app__portfolio d-flex flex-column flex  ">
         <div className="d-flex flex-column flex align-items-center ">
+          <p className="about-eyebrow">Featured Projects</p>
           <h2 className="about-head text-center tracking-tighter mb-4  ">
             Seamless Journeys <br />
             <span className="design-text">Unlocking Success</span>{" "}
@@ -76,6 +81,7 @@ const About = () => {
               <img className="frame" src={images.macframe} alt="mac-frame" />
               <Swiper
                 slidesPerView={1}
+                loop
                 effect="fade"
                 modules={[EffectFade, Pagination]}
                 autoplay={{
@@ -87,12 +93,12 @@ const About = () => {
                 onSwiper={(swiper) => {
                   setSwiper(swiper);
                 }}
-                onActiveIndexChange={() => activeButton()}
+                onRealIndexChange={(s) => setActive(s.realIndex)}
               >
-                {projectImagesWeb.map((item, index) => (
-                  <SwiperSlide key={index}>
+                {projects.map((project) => (
+                  <SwiperSlide key={project.name}>
                     <div className="project_image d-flex justify-content-center align-items-end">
-                      <img className="" src={item} alt="Mobile-images" />
+                      <img className="" src={project.web} alt={project.name} />
                     </div>
                   </SwiperSlide>
                 ))}
@@ -111,6 +117,7 @@ const About = () => {
             />
             <Swiper
               slidesPerView={1}
+              loop
               effect="fade"
               modules={[EffectFade, Pagination]}
               autoplay={{
@@ -121,92 +128,43 @@ const About = () => {
               onSwiper={(swiper) => {
                 setSwiperMobile(swiper);
               }}
-              onActiveIndexChange={() => activeButton()}
+              onRealIndexChange={(s) => setActive(s.realIndex)}
             >
-              {projectImagesMobile.map((item, index) => (
-                <SwiperSlide key={index}>
+              {projects.map((project) => (
+                <SwiperSlide key={project.name}>
                   <div className="project_image d-flex justify-content-center align-items-end">
-                    <img className="" src={item} alt="Mobile-images" />
+                    <img className="" src={project.mobile} alt={project.name} />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
-        {!isMidDevice ? (
-          <div className="button-wrapper  ">
+        <div className="project-tabs" ref={tabsRef} role="tablist">
+          {projects.map((project, index) => (
             <button
-              id="0"
-              className="button-projects "
-              onClick={() => {
-                swiper.slideTo(0);
-                swiperMobile.slideTo(0);
-                activeButton();
-              }}
+              key={project.name}
+              type="button"
+              role="tab"
+              aria-selected={active === index}
+              className={`project-tab ${active === index ? "is-active" : ""}`}
+              onClick={() => selectProject(index)}
             >
-              Hexbox
+              {project.name}
+              {active === index && (
+                <span className="project-tab-progress" key={active} />
+              )}
             </button>
-            <button
-              id="1"
-              className="button-projects "
-              onClick={() => {
-                swiper.slideTo(0);
-                swiperMobile.slideTo(0);
-                activeButton();
-              }}
-            >
-              Full-stack E-commerce
-            </button>
-            <button
-              id="2"
-              className="button-projects"
-              onClick={() => {
-                swiper.slideTo(1);
-                swiperMobile.slideTo(1);
-                activeButton();
-              }}
-            >
-              Delcapo E-commerce
-            </button>
-
-            <button
-              id="3"
-              className={`button-projects`}
-              onClick={() => {
-                swiper.slideTo(3);
-                swiperMobile.slideTo(3);
-                activeButton();
-              }}
-            >
-              Landing Page with Figma Design
-            </button>
-            <button
-              id="4"
-              className="button-projects"
-              onClick={() => {
-                swiper.slideTo(4);
-                swiperMobile.slideTo(4);
-                activeButton();
-              }}
-            >
-              ARS Concept Houses
-            </button>
-          </div>
-        ) : (
-          <a
-            href="https://github.com/KaanArslan19"
-            className="all-projects-wrap"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <button
-              id="allprojects-button"
-              className="button-projects all-projects "
-            >
-              See all of my projects
-            </button>
-          </a>
-        )}
+          ))}
+        </div>
+        <a
+          href="https://github.com/KaanArslan19"
+          className="all-projects-link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          See all of my projects →
+        </a>
       </div>
     </>
   );
@@ -214,6 +172,6 @@ const About = () => {
 
 export default AppWrap(
   MotionWrap(About, "app__about"),
-  "about",
+  "showcase",
   "app__whitebg"
 );
