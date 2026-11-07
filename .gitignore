@@ -24,3 +24,6 @@ yarn-error.log*
 
 #backend
 /backend_sanity
+
+# env
+.env

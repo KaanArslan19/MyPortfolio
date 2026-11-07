@@ -54,7 +54,7 @@ const Skills = () => {
                 key={skill._id}
               >
                 <div className="app__skills-icon">
-                  <img src={urlFor(skill.icon)} alt={skill.name} />
+                  <img src={urlFor(skill.icon).width(160).auto("format").url()} alt={skill.name} loading="lazy" />
                 </div>
                 <p>{skill.name}</p>
               </motion.div>

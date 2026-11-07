@@ -157,3 +157,20 @@
     margin: 1rem 0;
   }
 }
+
+.app__footer-error {
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #ff6b6b;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.app__footer-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
